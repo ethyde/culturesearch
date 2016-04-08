@@ -10,8 +10,32 @@
 
         <link rel="apple-touch-icon" href="dist/images/apple-touch-icon.png" />
         <link rel="icon" type="image/png" href="dist/images/favicon.png" />
-
+        
         <link rel="stylesheet" href="build/styles/main.css">
+
+        <!-- 1. Load libraries -->
+        <!-- IE required polyfills, in this exact order -->
+        <script src="node_modules/es6-shim/es6-shim.min.js"></script>
+        <script src="node_modules/systemjs/dist/system-polyfills.js"></script>
+        <script src="node_modules/angular2/es6/dev/src/testing/shims_for_IE.js"></script>   
+
+        <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+        <script src="node_modules/systemjs/dist/system.src.js"></script>
+        <script src="node_modules/rxjs/bundles/Rx.js"></script>
+        <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+        
+        <!-- 2. Configure SystemJS -->
+        <script>
+        System.config({
+            packages: {
+                app: {
+                    format: 'register',
+                    defaultExtension: 'js'
+                }
+            }
+        });
+        System.import('app/main').then(null, console.error.bind(console));
+        </script>
 
     </head>
 
@@ -19,42 +43,10 @@
         <div class="wrapper">
 
             <div class="container">
-                <!-- Header -->
-                <header class="mainHeader">
-                    <h1>Welcome to Bijoo Start !</h1>
-                </header>
-
-                <!-- Page content -->
-                <main class="mainContent">
-                    <div id="turn">0</div>
-                    <div class="player" id="player_1">
-                        <h1>player 1</h1>
-                        <button class="button_1">Button</button>
-                        <button class="button_2">Button</button>
-                        <button class="button_3">Button</button>
-                        <button class="button_4">Button</button>
-                        <button class="button_5">Button</button>
-                    </div>
-                    <div class="player" id="player_2">
-                        <h1>player 2</h1>
-                        <button class="button_1">button</button>
-                        <button class="button_2">button</button>
-                        <button class="button_3">button</button>
-                        <button class="button_4">button</button>
-                        <button class="button_5">button</button>
-                    </div>
-                </main>
-
-                <!-- Footer -->
-                <footer class="mainFooter"></footer>
+                <my-app>Loading...</my-app>
             </div>
+
         </div>
-
-        <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
-
-        <script src="build/scripts/main.js"></script>
-
-        <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=2"></' + 'script>')</script>
 
     </body>
 </html>
