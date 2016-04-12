@@ -2,12 +2,23 @@ import {Component} from 'angular2/core';
 
 @Component({
     selector: 'my-app',
-    template: '<h1>My First Angular 2 App</h1>'
+    // templateUrl: 'app/hero-list.component.html',
+    template: `
+        <h1>Choose your Cultural Domain of Search</h1>
+        <p>You search about a {{ domain }}</p>
+        <my-searchbox></my-searchbox>
+        <my-list></my-list>
+    `,
+    // styleUrls: ['app/hero-details.component.css'],
+    styles: [`
+        h1 {
+            color: blue;
+        }
+    `],
+    directives:  [],
+    providers:   []
 })
-export class AppComponent { }
 
-/*
-Copyright 2016 Google Inc. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/
+export class AppComponent {
+    domain = 'Movie';
+}
