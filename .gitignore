@@ -1,0 +1,7 @@
+# Build files folder
+build/
+typings/
+
+# npm package folder
+node_modules/
+npm-debug.log
